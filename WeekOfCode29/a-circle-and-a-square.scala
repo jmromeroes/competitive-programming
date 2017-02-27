@@ -87,7 +87,3 @@ for ( y  <- 0 until size._2 ) {
   }
   println("")
 }
-
-
-
-  

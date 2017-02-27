@@ -39,7 +39,7 @@ def getDateOfTheProgrammer(yearToEvaluate: Int): String = {
       day + ".09." + yearToEvaluate.toString
 
     case _         =>
-      val day: String = "27"
+      val day: String = "26"
 
       day + ".09." + yearToEvaluate.toString
   }
