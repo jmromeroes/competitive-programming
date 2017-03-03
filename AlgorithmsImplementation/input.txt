@@ -1,4 +1,7 @@
-iffactsdontfittotheorychangethefacts
-chillout
-feedthedog
-haveaniceday
+1
+rebjvsszebhehuojrkkhszxltyqfdvayusylgmgkdivzlpmmtvbsavxvydldmsym
+
+mine=>
+rebjvsszebhehuojrkkhszxltyqfdvayusylgmgkdivzlpmmtvbsavxvydlmdysm
+expected =>
+rebjvsszebhehuojrkkhszxltyqfdvayusylgmgkdivzlpmmtvbsavxvydldmyms
