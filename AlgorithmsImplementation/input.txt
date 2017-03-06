@@ -1,7 +1,9 @@
 1
-rebjvsszebhehuojrkkhszxltyqfdvayusylgmgkdivzlpmmtvbsavxvydldmsym
-
-mine=>
-rebjvsszebhehuojrkkhszxltyqfdvayusylgmgkdivzlpmmtvbsavxvydlmdysm
-expected =>
-rebjvsszebhehuojrkkhszxltyqfdvayusylgmgkdivzlpmmtvbsavxvydldmyms
+4 6
+123412
+561212
+123634
+781288
+2 2
+12
+34
