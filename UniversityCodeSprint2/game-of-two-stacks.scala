@@ -7,11 +7,11 @@ def getBestScore(stackSizes: Array[Int], stack1: Array[BigInt], stack2: Array[Bi
 
   var y: Int = stackSizes(1)
 
+  while(stack2(y) > maxScore)
+    y -= 1
+
   while(y >= 0) {
     var x: Int = stackSizes(0)
-
-    while(stack2(y) > maxScore)
-      y -=1
 
     while(x >= 0 && (stack1(x) + stack2(y) > maxScore || stack1(x) > maxScore)) {
       x -= 1
