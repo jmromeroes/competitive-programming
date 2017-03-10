@@ -50,20 +50,17 @@ object Solution {
       val pw: PrintWriter = new PrintWriter(System.out)
       val n: Int          = sc.nextInt
       val l: Array[Int]   = new Array[Int](100)
-      val ls: Array[String] = new Array[String](100) 
+      val ls: Array[StringBuilder] = new Array[StringBuilder](100) 
         
       for(x <- 0 until n){
         val i: Int = sc.nextInt
         val s: String = sc.next
-        if(x < n/2) { "-"
-          ls(i) = "- "          
-        } else {
+        val v: String = if(x < n/2) "-" else s
 
-        }
         if(ls(i) == null)
-          ls(i) = v + " "
+          ls(i) = new StringBuilder().append(v + " ")
         else
-          ls(i) = ls(i) + v + " "
+          ls(i) = ls(i).append(v + " ")
 
       }
       
@@ -71,7 +68,7 @@ object Solution {
         y <- 0 until 100
         if(ls(y) != null)
       } {
-        pw.print(ls(y))
+        pw.print(ls(y).toString)
       }
 
       pw.flush
