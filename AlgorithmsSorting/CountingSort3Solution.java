@@ -39,56 +39,58 @@ public class CountingSort3Solution {
 }
 
 class MyScanner{
+  import java.util.StringTokenizer;
+  import java.io.*;
 
-    BufferedReader br;
-    StringTokenizer st;
-      
-    public MyScanner() {
-       br = new BufferedReader(new InputStreamReader(System.in));
-    } 
-      
-    public String next(){
+  BufferedReader br;
+  StringTokenizer st;
     
+  public MyScanner() {
+     br = new BufferedReader(new InputStreamReader(System.in));
+  } 
+    
+  public String next(){
+  
 	while(st == null || !st.hasMoreElements()) {
-            try {
-                st = new StringTokenizer(br.readLine());
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-    
+	   try {
+	       st = new StringTokenizer(br.readLine());
+	   } catch (IOException e){
+	       e.printStackTrace();
+	   }
+      }
+  
 	return st.nextToken();
-    
-    }
-    
-    public int nextInt() {
-        return Integer.parseInt(next());
-    }
+  
+  }
+  
+  public int nextInt() {
+      return Integer.parseInt(next());
+  }
 
-    public float nextFloat(){ 
-        return Float.parseFloat(next());
-    }
+  public float nextFloat(){ 
+      return Float.parseFloat(next());
+  }
 
-    public double nextDouble(){
-        return Double.parseDouble(next());
-    }
+  public double nextDouble(){
+      return Double.parseDouble(next());
+  }
 
-    public long nextLong(){
-        return Long.parseLong(next());
-    }
-    
-    public String nextLine(){
-    
+  public long nextLong(){
+      return Long.parseLong(next());
+  }
+  
+  public String nextLine(){
+  
 	String str = "";
+  
+      try {
+	   str = br.readLine();
+      } catch (IOException e){
+	   e.printStackTrace();
+      }
     
-        try {
-            str = br.readLine();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-      
-        return str;
-    }
+      return str;
+  }
 
 }
 
