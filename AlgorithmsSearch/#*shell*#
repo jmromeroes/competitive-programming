@@ -994,4 +994,50 @@ Impressed
 Impressed
 jose@debian:~/Documents/Repos/competitive-programming/AlgorithmsSearch$ scala count-luck.scala < input.txt 
 Impressed
-jose@debian:~/Documents/Repos/competitive-programming/AlgorithmsSearch$ 
+jose@debian:~/Documents/Repos/competitive-programming/AlgorithmsSearch$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   count-luck.scala
+	modified:   input.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	*shell*
+
+no changes added to commit (use "git add" and/or "git commit -a")
+jose@debian:~/Documents/Repos/competitive-programming/AlgorithmsSearch$ cd ..
+jose@debian:~/Documents/Repos/competitive-programmigit status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   AlgorithmsSearch/count-luck.scala
+	modified:   AlgorithmsSearch/input.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	AlgorithmsSearch/*shell*
+
+no changes added to commit (use "git add" and/or "git commit -a")
+jose@debian:~/Documents/Repos/competitive-programming$ git add -A 
+jose@debian:~/Documents/Repos/competitive-programming$   (use "git checkout -- <file>..." to discard changes in working directory)
+bash: use: command not found
+jose@debian:~/Documents/Repos/competitive-programming$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   AlgorithmsSearch/*shell*
+	modified:   AlgorithmsSearch/count-luck.scala
+	modified:   AlgorithmsSearch/input.txt
+
+jose@debian:~/Documents/Repos/competitive-programming$ git commit -m "Adds fun (Medium Difficulty) DFS solution for Hackerrank prob
