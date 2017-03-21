@@ -2,7 +2,6 @@
 
 import sys
 
-
 n,m = input().strip().split(' ')
 n,m = [int(n),int(m)]
 a = [int(a_temp) for a_temp in input().strip().split(' ')]
