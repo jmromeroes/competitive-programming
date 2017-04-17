@@ -49,33 +49,31 @@ object Solution {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution
 */    
       import scala.util.control.Breaks._
-      
+      import scala.collection.mutable.Map
+        
       val pw: PrintWriter = new PrintWriter(System.out)
       val sc: MyScanner = MyScanner()
       val n: Int = sc.nextInt
       val k: Int = sc.nextInt
       val arr: Array[Int] = new Array[Int](n)
       var iref: Int = 0
-
+      val map: Map[Int, Int] = Map()
+        
       def swap(x1: Int, x2: Int): Unit = {
         val aux: Int = arr(x1)
+        map(arr(x1)) = x2
+        map(arr(x2)) = x1
         arr(x1) = arr(x2)
         arr(x2) = aux
       }
       
-      def getMaximumIndex(): Int = {
-        var max: Int = iref
-        for(i <- iref until n){
-          if(arr(i) == 0)
-            arr(i) = sc.nextInt
-          if(arr(i) > arr(max))
-            max = i
-        }
-        max
+      for(i <- 0 until n){
+        arr(i) = sc.nextInt
+        map += (arr(i) -> i)
       }
       
-      if(k > n){
-        pw.println((1 to n).mkString(" "))
+      if(k > n){  
+        pw.println(arr.sortBy(-_).mkString(" "))
       } else {
         var j: Int = k
         breakable {
@@ -83,7 +81,7 @@ object Solution {
             if(iref == n){
               break
             }else {
-              val m: Int = getMaximumIndex
+              val m: Int = map.get(n - iref).get
               if(m != iref){
                 j -= 1
               }
