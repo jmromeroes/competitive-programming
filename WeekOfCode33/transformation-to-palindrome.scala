@@ -9,7 +9,7 @@ object Solution extends App {
   //Number of nodes
   val nn: Int = sc.nextInt
   //Subset references 
-  val sr: Array[Int] = Array[nn]() 
+  val sr: Array[Int] = Array.fill[Int](nn)(-1)
 
   //Number of transitions
   val nt: Int = sc.nextInt
@@ -19,53 +19,58 @@ object Solution extends App {
   //Input reference
   val input: Array[Int] = new Array[Int](ni)
 
+  val dp: Array[Array[Int]] = Array.ofDim[Int](ni, ni)
+
   for(i <- 0 until nt){
-
-    val a: Int = sc.nextInt
-    val b: Int = sc.nextInt
+    val a: Int = sc.nextInt - 1
+    val b: Int = sc.nextInt - 1
     
-    if(sr(a) != 0 && sr(b) != 0){
-      sr(b) = sr(a)
-
-      for(cc <- possibleMappings(sr(b) - 1)){
+//    println(a, b)
+    if(sr(a) != -1 && sr(b) != -1){
+//      println("1: ", sr(b), sr(a))
+      for(cc <- possibleMappings(sr(b))){
         sr(cc) = sr(a)
-        possibleMappings(sr(a) - 1) += cc        
+        possibleMappings(sr(a)) += cc        
       }
-
-    } else if(sr(a) != 0 && sr(b) == 0){
+      
+    } else if(sr(a) != -1 && sr(b) == -1){
+//      println("2: ", sr(b), sr(a))
       sr(b) = sr(a)
-      possibleMappings(sr(a) - 1) += b
-    } else if(sr(a) == 0 && sr(b) != 0){
+      possibleMappings(sr(a)) += b
+    } else if(sr(a) == -1 && sr(b) != -1){
       sr(a) = sr(b)
-      possibleMappings(sr(b) - 1) += a      
+//      println("3: ", sr(b), sr(a))
+      possibleMappings(sr(b)) += a      
     } else {
+//      println("4: ", sr(b), sr(a))
       //Length of list
       val ll: Int = possibleMappings.size 
       sr(a) = ll
       sr(b) = ll
       possibleMappings.append(HashSet(a, b))
+      
     }
 
   }
-
+  
   for(i <- 0 until ni){
     input(i) = sc.nextInt
+    dp(i)(i) = 1
   }
 
-  def getMaxPalindromeLength(s: Int, f: Int): Int{
-    val h: Int = sr(input(s))
-    val j: Int = sr(input(f))
-    if(f - s == 0) 1
-    else if(f - s == 1){
-      if(h == j) 1
-      else 2
-    } else if(h == j){
-      2 + getMaxPalindromeLength(s + 1, f - 1)
-    } else {
-      Math.max(getMaxPalindromeLength(s, f - 1), getMaxPalindromeLength(s + 1, f))
+  for(len <- 2 to ni) {
+    for(i <- 0 to ni - len) {
+      val j: Int = i + len - 1
+      if(sr(input(i) - 1) == sr(input(j) - 1) && (sr(input(i) - 1) != -1 || ((input(i) - 1) == (input(j) - 1)))){
+        if(len == 2)
+          dp(i)(j) = 2
+        else
+          dp(i)(j) = 2 + dp(i + 1)(j - 1)
+      } else {
+        dp(i)(j) = Math.max(dp(i + 1)(j), dp(i)(j - 1))
+      }
     }
   }
 
-  println(getMaxPalindromeLength(0, ni - 1))
-
+  println(dp(0)(ni - 1))
 }
