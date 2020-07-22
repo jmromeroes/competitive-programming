@@ -1,0 +1,21 @@
+object Solution {
+    def myPow(x: Double, n: Int): Double = {
+        val absN = Math.abs(n)
+        
+        val res = absN match {
+            case 0 => 1
+            case 1 => x
+            case 2 => x * x
+            case h => 
+                if(absN % 2 == 0){
+                    val temp = myPow(x, absN/2)
+                    temp * temp
+                } else {
+                    val temp = x * myPow(x, absN - 1)
+                    temp
+                }
+        }
+        
+        if(n < 0) 1/res else if(res == Double.PositiveInfinity) 0 else res
+    }
+}
