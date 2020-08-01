@@ -15,14 +15,16 @@ object Solution {
        if(charCase == 4) return false
         
        for(i <- 2 until word.length){
-          charCase match {
+          val isValid = charCase match {
              case 1 =>
-                if(!word(i).isUpper) return false
+                if(!word(i).isUpper) false else true
              case 2 =>
-                if(word(i).isUpper) return false
+                if(word(i).isUpper) false else true
              case 3 =>
-                if(word(i).isUpper) return false
-          }    
+                if(word(i).isUpper) false else true
+          }
+          
+          if(!isValid) return false
        }
        true
     }
