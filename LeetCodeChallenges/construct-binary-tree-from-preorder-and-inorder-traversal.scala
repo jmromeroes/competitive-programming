@@ -35,3 +35,20 @@ object Solution {
                 taken += 1
                 current.left = buildTreeRec(new TreeNode(nextValue), leftBound, currentPosition - 1)
             }
+            
+            if(taken >= length) return current
+            nextValue = preorder(taken)
+            val hasRightChildren = inRange(positions(nextValue), (currentPosition + 1, rightBound))
+            
+            if(hasRightChildren){
+                taken += 1
+                current.right = buildTreeRec(new TreeNode(nextValue), currentPosition + 1, rightBound)
+            }
+            
+            current
+        }
+        
+        buildTreeRec(new TreeNode(preorder(0)), 0, length - 1)
+    }
+    
+}
